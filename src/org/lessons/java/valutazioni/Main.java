@@ -37,12 +37,5 @@ public class Main {
             }
 
         }
-
-
-        course.addStudent(new Student());
-        System.out.println(course.toString());
-
-
-
     }
 }
