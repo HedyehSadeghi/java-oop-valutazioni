@@ -19,9 +19,14 @@ public class Main {
             switch (choice){
                 case "1":
                     System.out.println("type the student id to remove");
-                    int idStudent= Integer.parseInt(scanner.nextLine()) ;   //gestione errori
-                    course.removeStudent(idStudent);
-                    System.out.println("your new list:\n"+ course.toString());
+                    try{
+                        int idStudent= Integer.parseInt(scanner.nextLine()) ;   //gestione errori
+                        course.removeStudent(idStudent);
+                        System.out.println("your new list:\n"+ course.toString());
+
+                    } catch (IllegalArgumentException e){
+                        System.out.println("invalid number, pick a number between 1 and "+ course.getStudentList().size());
+                    }
                     break;
                 case "2":
                     course.addStudent(new Student());

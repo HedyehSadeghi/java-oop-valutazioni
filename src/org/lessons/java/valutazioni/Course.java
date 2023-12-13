@@ -26,10 +26,6 @@ public class Course {
         return studentList;
     }
 
-    public void setStudentList(ArrayList<Student> studentList) {
-        this.studentList = studentList;
-    }
-
     public int getTotalDays() {
         return totalDays;
     }
@@ -46,12 +42,9 @@ public class Course {
 
 
     public void addStudent(Student student){
-
         student.setIdStudent(studentList.size()+1);
         studentList.add(student);
     }
-
-
 
     public void removeStudent(int i) throws IllegalArgumentException{
         if (i<1 || i> studentList.size()){
