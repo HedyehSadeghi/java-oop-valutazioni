@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Student {
     //ATTRIBUTI
+    private static int counter=1;
     private int idStudent;
     private int missedDays;
     private BigDecimal gpa;
@@ -16,6 +17,7 @@ public class Student {
         Random random= new Random();
         missedDays = random.nextInt(0,Course.totalDays);
         gpa= BigDecimal.valueOf(random.nextDouble()*5);
+        idStudent=counter++;
     }
 
     //SETTER E GETTER
@@ -47,6 +49,7 @@ public class Student {
             return graduated;
         }
     }
+
 
     @Override
     public String toString() {

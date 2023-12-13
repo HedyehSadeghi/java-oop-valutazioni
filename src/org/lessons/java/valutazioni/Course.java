@@ -8,10 +8,11 @@ import java.util.Random;
 public class Course {
     //ATTRIBUTI
     private ArrayList<Student> studentList;
-    public static final int totalDays =300;
+    public static int totalDays;
 
     //COSTRUTTORI
     public Course() {
+        /*
         Random random= new Random();
         int numberOfStudents= random.nextInt(10,21);
         studentList = new ArrayList<>();
@@ -19,6 +20,9 @@ public class Course {
             studentList.add(new Student() );
             studentList.get(i).setIdStudent(i+1);
         }
+
+         */
+        studentList= new ArrayList<>();
     }
 
     //GETTER E SETTER
@@ -28,6 +32,11 @@ public class Course {
 
     public int getTotalDays() {
         return totalDays;
+    }
+
+    public static void setTotalDays(int totalDays) {
+        Course.totalDays=0;
+        Course.totalDays= totalDays;
     }
 
     //METODI PUBLIC
@@ -42,7 +51,6 @@ public class Course {
 
 
     public void addStudent(Student student){
-        student.setIdStudent(studentList.size()+1);
         studentList.add(student);
     }
 
@@ -61,11 +69,11 @@ public class Course {
                 numberStudentsGraduated ++;
             }
         }
-
         BigDecimal percentage= new BigDecimal(numberStudentsGraduated).divide(new BigDecimal(studentList.size()),2, RoundingMode.HALF_DOWN);
         percentage= percentage.multiply(BigDecimal.valueOf(100));
         return percentage;
     }
+
 
 
 

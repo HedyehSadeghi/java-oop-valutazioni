@@ -1,12 +1,18 @@
 package org.lessons.java.valutazioni;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-
+        Random random= new Random();
         Course course= new Course();
+        Course.setTotalDays(300);
+        int numberOfStudents= random.nextInt(10,21);
+        for (int i = 0; i <numberOfStudents-1 ; i++) {
+            course.addStudent(new Student());
+        }
         System.out.println("TOTAL DAYS: "+ course.getTotalDays());
         System.out.println(course.toString());
         System.out.println("students graduated: "+ course.percentageStudentGraduated() +" %");
