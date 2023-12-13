@@ -9,11 +9,10 @@ import java.util.function.BiFunction;
 public class Course {
     //ATTRIBUTI
     private ArrayList<Student> studentList;
-    private static int totalDays;
+    public static final int totalDays =300;
 
     //COSTRUTTORI
     public Course() {
-        totalDays= 300;
         Random random= new Random();
         int numberOfStudents= random.nextInt(10,21);
         studentList = new ArrayList<>();
@@ -48,13 +47,19 @@ public class Course {
 
 
     public void addStudent(Student student){
+
+        student.setIdStudent(studentList.size()+1);
         studentList.add(student);
     }
 
 
 
-    public void removeStudent(Student student){
-        studentList.remove(student);
+    public void removeStudent(int i) throws IllegalArgumentException{
+        if (i<1 || i> studentList.size()){
+            throw new IllegalArgumentException("pick a number between 1 and "+ studentList.size());
+        }else {
+            studentList.remove(i-1);
+        }
     }
 
     public BigDecimal percentageStudentGraduated(){

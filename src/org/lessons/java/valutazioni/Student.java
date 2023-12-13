@@ -14,9 +14,8 @@ public class Student {
     //COSTRUTTORI
     public Student() {
         Random random= new Random();
-        missedDays = random.nextInt(0,501);
+        missedDays = random.nextInt(0,Course.totalDays);
         gpa= BigDecimal.valueOf(random.nextDouble()*5);
-        idStudent= random.nextInt();
     }
 
     //SETTER E GETTER
@@ -38,9 +37,7 @@ public class Student {
 
     //METODI PUBLIC
     public boolean studentGraduated(){
-        int totalDays=300;
-
-
+        int totalDays= Course.totalDays;
         boolean graduated= false;
         if((missedDays/totalDays*100<= 50 && missedDays/totalDays*100>=25) && gpa.compareTo(new BigDecimal(2))==1){   //(missedDays<=50 && missedDays>=25) && gpa>2
             return graduated=true;
@@ -49,20 +46,11 @@ public class Student {
         } else{
             return graduated;
         }
-        /*
-        if (missedDays>50){
-            return graduated=false;
-        } else if(missedDays>=25 && gpa.compareTo(new BigDecimal(2))==1){
-            return graduated=true;
-        } else if(missedDays<25 && (gpa.compareTo(new BigDecimal(2))==0 || gpa.compareTo(new BigDecimal(2))==1)){
-            return graduated=true;
-        }
-        */
     }
 
     @Override
     public String toString() {
-        return "student "+ idStudent+ " missed days: "+ missedDays+ " gpa: "+ gpa.setScale(1, RoundingMode.HALF_DOWN);
+        return "student "+ idStudent+ " missed days: "+ missedDays+ " gpa: "+ gpa.setScale(1, RoundingMode.HALF_DOWN)+ " graduated: " + (studentGraduated()? "yes" : "no");
     }
 
     @Override
